@@ -16,6 +16,13 @@
 
 export const handlePromise = () => {
   // Your code goes here...
+  const prom = new Promise((resolve, reject) => {
+    reject("REJECTED!");
+  })
+  
+  return prom
+  .catch((err) => err)
+  .finally(console.log('This promise is finished!'));
 };
 
 // === TEST YOURSELF ===

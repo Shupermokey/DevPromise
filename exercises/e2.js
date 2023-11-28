@@ -14,10 +14,27 @@
  * The getPromise function must be exported
  * Example: export const getPromise = (bool) = return <Your promise constructor code>
  */
+const promise = new Promise((resolve, reject) =>{ 
+  resolve('The PROMISE was RESOLVED');
+  reject('The PROMISE was REJECTED');
+  // resolve(new Promise(resolve('The PROMISE was RESOLVED')));
+  // reject(new Promise(reject('The PROMISE was REJECTED')));
+  });
 
-export const getPromise = () => {
-  // Your code goes here...
+
+
+export const getPromise = (bool) => {
+  if(bool){
+    return new Promise((resolve, reject) =>  {
+      resolve('The PROMISE was RESOLVED');
+    })
+  }
+  return new Promise((resolve,reject) =>  {
+    reject('The PROMISE was REJECTED');
+  })
 };
+
+
 
 /**
  * Create a handlePromise function that follows:
@@ -28,8 +45,14 @@ export const getPromise = () => {
  * The handlePromise() function must be exported
  */
 
-export const handlePromise = () => {
+export const handlePromise = (promise) => {
   // Your code goes here...
+
+  const onFulfilled = (data) => data;
+  const onRejected = () => "Uh Oh";
+
+  return promise
+  .then(onFulfilled, onRejected);
 };
 
 // === TEST YOURSELF ===
