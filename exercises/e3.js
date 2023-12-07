@@ -14,18 +14,15 @@
  * * getPromise(num) function must be exported
  * Example: export const getPromise(num) => return <Your code of promise>
  */
- export const getPromise = (num) => {
+export const getPromise = (num) => {
   // Your code goes here...
-  if(num % 1 === 0) {
-    return new Promise((resolve, reject) => {
+  if (num % 1 === 0) {
+    return new Promise((resolve) => {
       resolve(num);
-    })
-  }
-  else {
+    });
+  } else {
     return 0;
   }
-
-  
 };
 
 /**
@@ -42,7 +39,7 @@
 export const updateSumValue = () => {
   // Your code goes here...
   let sum = 2;
-  getPromise(120).then((data) => sum+=data);
+  getPromise(120).then((data) => (sum += data));
   sum += 8;
   return sum;
 };

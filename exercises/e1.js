@@ -16,22 +16,14 @@
 
 // Your code goes here
 
-
-
-const cool = (resolve, reject) => {
+export const getPromise = new Promise((resolve) => {
   setTimeout(() => {
-    resolve('The PROMISE was RESOLVED');
+    resolve("The PROMISE was RESOLVED");
   }, 1000);
-}
-
-export const getPromise = new Promise(cool);
-
-getPromise.then((data) => {
-  console.log(data)
+}).then((data) => {
+  console.log(data);
   return data;
 });
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-1"

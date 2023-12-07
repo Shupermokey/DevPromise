@@ -23,15 +23,13 @@ export const attachTitle = (title) => {
 
 export const getPromise = () => {
   // Your code goes here...
-  const prom =  new Promise((resolve) => {
-    resolve('MANHATTAN')
-  })
 
-  return prom
-  .then((title)=> {title = attachTitle(title); 
-  console.log(title)})
-  // .then((data) => console.log(data));
-}
+  return new Promise((resolve) => {
+    resolve("MANHATTAN");
+  })
+    .then((title) => attachTitle(title))
+    .then((data) => console.log(data));
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-5"

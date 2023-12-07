@@ -28,11 +28,14 @@ export const usersUrl = 'http://localhost:3000/users/';
 
 const getLoginList = (data) => {
   // Your code goes here...
-  const arr = [];
-  for(const user of data){
-    arr.push(user.login);
-  }
-  return arr;
+
+  return data.map((person) => person.login);
+
+  // const arr = [];
+  // for(const user of data){
+  //   arr.push(user.login);
+  // }
+  // return arr;
 
 }
 
@@ -61,8 +64,9 @@ const getData = fetch(usersUrl);
 export const result = getData
 .then(res => res.json())
 .then(data => { 
-  console.log(getLoginList(data))
-  return getLoginList(data);
+  const result = getLoginList(data);
+  console.log(result);
+  return result;
 })
 .catch(e => console.log(e));
 

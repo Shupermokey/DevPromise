@@ -24,15 +24,10 @@ export function parsePromised(jsonString) {
   return new Promise((resolve, reject) => {
     try {
       resolve(JSON.parse(jsonString));
-    }
-    catch(e) {
-      console.log(e.message);
+    } catch (e) {
       reject(e);
-      
     }
-  })
-  .then((data) => {data})
-  .catch((err) => {throw Error(err)})
+  });
 }
 
 /**
@@ -61,7 +56,9 @@ export function onReject(err) {
 
 export const handlePromise = (promise) => {
   // Your code goes here...
-  return promise.then((data) => data).catch((err) => onReject(err))
+  return promise
+    .then((data) => data)
+    .catch((err) => (err.message ? onReject(err) : err));
 };
 
 // === TEST YOURSELF ===
